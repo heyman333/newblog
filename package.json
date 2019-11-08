@@ -73,7 +73,7 @@
   },
   "scripts": {
     "post": "node ./cli/create-new-post.js",
-    "dev": "gatsby develop -p 8081",
+    "dev": "gatsby develop -p 8082",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
