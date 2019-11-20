@@ -73,14 +73,15 @@ Warning: Each child in an array or iterator should have a unique "key" prop ...
 ```jsx
   // before
   <ul>
-    <li>first</li>
-    <li>second</li>
+    <li>Duke</li>
+    <li>Villanova</li>
   </ul>
+
   // after
   <ul>
-    <li>first</li>
-    <li>second</li>
-    <li>third</li>
+    <li>Connecticut</li>
+    <li>Duke</li>
+    <li>Villanova</li>
   </ul>
 ```
 
