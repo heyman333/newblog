@@ -210,3 +210,9 @@ render() {
 ```
 
 위 예제에서 `Child` 컴포넌트에 `key` prop이 없었다면 사실상 `Child`에 변화가 아예 없기 때문에 인스턴스를 새로 그리는 일은 일어나지 않았을 것입니다 이런 `key` prop 속성을 사용한다면 다음 링크 예제의 문제를 해결 할 수 있겠네요(https://kentcdodds.com/blog/understanding-reacts-key-prop)
+
+# 참고
+
+- https://ko.reactjs.org/docs/reconciliation.html#the-diffing-algorithm
+- https://kentcdodds.com/blog/understanding-reacts-key-prop
+- https://dev.to/ganderzz/react-controlling-rendering-through-keys-274m
