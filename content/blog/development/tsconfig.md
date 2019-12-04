@@ -2,6 +2,7 @@
 title: 'React프로젝트에 타입스크립트 개발환경 구축하기'
 date: 2019-07-04 20:51:00
 category: 'typescript'
+draft: false
 ---
 
 React 프로젝트를 시작할때마다 애먹이는 typescript 개발환경 설정 여기서 정리합니다!

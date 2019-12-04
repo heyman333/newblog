@@ -2,6 +2,7 @@
 title: 'React key prop 이해하기'
 date: 2019-11-20 20:51:00
 category: 'react'
+draft: false
 ---
 
 ```

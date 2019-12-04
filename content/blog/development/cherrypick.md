@@ -2,6 +2,7 @@
 title: '깃(git) 체리픽 사용법'
 date: 2019-08-04 20:51:00
 category: 'git'
+draft: false
 ---
 
 다른 개발자와 협업하다가 브랜치가 여기저기 꼬여서  

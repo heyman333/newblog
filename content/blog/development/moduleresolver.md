@@ -2,6 +2,7 @@
 title: '프로젝트에 module resolver 적용하기 (RN)'
 date: 2019-10-19 08:56:00
 category: 'babel'
+draft: false
 ---
 
 이 포스트에서는 `vscode` 에디터를 기준으로 [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)를 사용해서
