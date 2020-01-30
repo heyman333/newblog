@@ -1,7 +1,7 @@
 ---
 title: '올해 react native seoul 에서 얻은 것들'
 date: 2019-12-31 20:56:00
-category: 'react'
+category: 'etc'
 draft: false
 ---
 
