@@ -1,9 +1,8 @@
-\---
+---
 title: '러나 (Lerna) 훑어보기'
 date: 2020-02-02 21:56:00
 category: 'etc'
 draft: false
-
 ---
 
 <i>최근 러나를 활용한 모노레포 프로젝트를 진행하게 되면서 러나를 왜 사용하는지 이해하기 위해서 정리한 글입니다</i>
@@ -82,10 +81,12 @@ react-native-seoul 밋업에서 진행중인 dooboo-ui-native (https://github.co
   - 패키지의 배포를 관리 하는데 사용됩니다
   - 아무 `agrument`를 사용하지 않을경우 모든 패키지의 버전을 `lerna.json`에 명시된 버전으로 업데이트 후 배포를 진행합니다(v 2.0.0)
 
-    ```script
+    ````script
     - @dooboo-ui/native-accordion: 1.5.5 => 2.0.0
     - @dooboo-ui/native-button-group: 0.4.0 => 2.0.0
-    ```
+    ```ㄴ
+
+    ````
 
   - `lerna publish from-package`을 사용할 경우 각각의 패키지의 버전과 `npm 레지스트리`에 실제로 배포되어있는 버전을 비교하고 차이점이 있는 패키지만 업데이트 후 배포를 진행합니다
 
