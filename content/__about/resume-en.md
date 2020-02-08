@@ -10,7 +10,7 @@ lang: 'en'
 
 열심히 개발하는 개발자입니다.  
 모바일 개발을 좋아라하고 서버개발 공부는 천천히 해보려고 합니다.  
-React-Native를 사랑하고 오픈소스 생테계에 관심이 많습니다 🌈
+React-Native를 사랑하고 오픈소스 생태계에 관심이 많습니다 🌈
 
 https://www.linkedin.com/in/youngsu-han/
 
