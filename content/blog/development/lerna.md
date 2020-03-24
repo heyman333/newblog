@@ -69,6 +69,7 @@ react-native-seoul 밋업에서 진행중인 dooboo-ui-native (https://github.co
 
   - 모든 패키지에 명시된 모듈을 설치합니다
   - 위에서 설명한 것처럼 다른 패키지에서 다른 패키지를 참조 할 수 있도록 링킹하는 작업을 진행합니다
+  - 루트 package.json의 모듈을 설치 하기 위해서는 npm install 또는 yarn 을 실행합니다
   - https://github.com/lerna/lerna/tree/master/commands/bootstrap
 
 * lerna run `script`
@@ -84,7 +85,7 @@ react-native-seoul 밋업에서 진행중인 dooboo-ui-native (https://github.co
     ````script
     - @dooboo-ui/native-accordion: 1.5.5 => 2.0.0
     - @dooboo-ui/native-button-group: 0.4.0 => 2.0.0
-    ```ㄴ
+    ```
 
     ````
 
