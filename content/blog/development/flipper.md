@@ -1,5 +1,5 @@
 ---
-title: 'Reaact Native에서 Flipper 사용하기'
+title: 'React Native에서 Flipper 사용하기'
 date: 2020-03-30 04:21:00
 category: 'react-native'
 draft: false
