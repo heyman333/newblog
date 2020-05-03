@@ -75,7 +75,7 @@ React Native에서는 이미 다음처럼 `show inspector`라는 기능을 통�
 2. React Native를 위한 플러그인이 부족  
    Redux 연동을 위한 플러그인이 없어 평소에 Redux-devtools를 편하게 사용하신 분이라면 다소 불편함이 있을 것 같습니다 (현재 플러그인 리스트에 있는건 Flutter용) 이것 말고도 마땅히 필수 플러그인이라고 설치할만 것들이 없는 것 같습니다. 플러그인 리스트는 https://www.npmjs.com/search?q=flipper-plugin 에서 확인 가능합니다.
 3. 데스크탑 앱 UI가 가끔씩 깨짐  
-   화면을 이리저리 옮겨다니고 Collapsable menu를 사용하다보면 가끔 UI가 꺠지는데 원래대로 돌아오지 않아 앱을 껏다가 켜야 하는 경우가 있었습니다.
+   화면을 이리저리 옮겨다니고 Collapsable menu를 사용하다보면 가끔 UI가 깨지는데 원래대로 돌아오지 않아 앱을 껏다가 켜야 하는 경우가 있었습니다.
 
 # 결론
 
