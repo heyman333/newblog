@@ -120,7 +120,7 @@ Successfully created seeders folder at "project root/seeders".
    - 파일 업로드를 위해 사용되는 multipart/form-data 를 다루기 위한 미들웨어
    - 파일 한개 및 여러개 업로드를 위한 편리한 메소드를 제공
 
-2. multer-s3 (https://github.com/expressjs/multer)
+2. multer-s3 (https://github.com/badunk/multer-s3)
 
    - multer를 이용해서 aws s3에 이미지를 올리기 용이하게 지원하는 라이브러리
    - s3를 config할 수 있는 여러가지 옵션을 제공
