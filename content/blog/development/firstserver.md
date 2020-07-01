@@ -113,12 +113,24 @@ Successfully created seeders folder at "project root/seeders".
    )
    ```
 
+### 이미지 업로드
+
+1. multer (https://github.com/expressjs/multer)
+
+   - 파일 업로드를 위해 사용되는 multipart/form-data 를 다루기 위한 미들웨어
+   - 파일 한개 및 여러개 업로드를 위한 편리한 메소드를 제공
+
+2. multer-s3 (https://github.com/badunk/multer-s3)
+
+   - multer를 이용해서 aws s3에 이미지를 올리기 용이하게 지원하는 라이브러리
+   - s3를 config할 수 있는 여러가지 옵션을 제공
+
 ## TODO
 
 1. AWS S3와 CloudFront 연동 및 이미지 저장
 2. 태그 기능 구현
 3. 프론트엔드 (React Native or React web)
-4. 브레이크포인트로 디버그 할 수 있도록 프로젝트 설정
+4. ~~브레이크포인트로 디버그 할 수 있도록 프로젝트 설정~~
 
 ## 참고
 
