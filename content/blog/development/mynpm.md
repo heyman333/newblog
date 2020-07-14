@@ -6,7 +6,7 @@ draft: true
 ---
 
 최근에 회사에서 사용하는 소스를 모듈화 해서 npm에 배포했습니다
-[깃헙](https://github.com/heyman333/react-native-animated-numbers)
+[깃헙링크](https://github.com/heyman333/react-native-animated-numbers)
 
 대단한 일은 아니지만 혹시 이런 일을이 어렵게만 느껴지시는 분들을 위해 포스트를 작성합니다. 이게 별로 어려운일이 아니라는 것을 많은 자바스크립트 개발자 분들이 아셨으면 좋겠습니다 🙃
 
@@ -114,6 +114,20 @@ export { RFPercentage, RFValue }
 
 ## 3. npmignore 작성하기
 
+npmignore은 깃헙등 레포지토리에는 표시가 되지만 실제 다운로드 되는 `node_modules` 에는 다운로드가(배포가) 되지 않도록 제외시킬 목록을 정의하는 파일입니다.
+보통은 `.git`이 포함되며 `images` 또는 예지 프로젝트 폴인 `examples` 등이 포함됩니다 파일명은 `.npmignore`로 숨김처리 하여 만듭니다
+
+```
+ExampleProject
+images
+.circleci
+.git
+```
+
 ## 4. npm 계정 만들기
 
 ## 5. 그 외 있으면 좋은 것들
+
+```
+
+```
