@@ -115,7 +115,7 @@ export { RFPercentage, RFValue }
 ## 3. npmignore 작성하기
 
 npmignore은 깃헙등 레포지토리에는 표시가 되지만 실제 다운로드 되는 `node_modules` 에는 다운로드가(배포가) 되지 않도록 제외시킬 목록을 정의하는 파일입니다.
-보통은 `.git`이 포함되며 `images` 또는 예지 프로젝트 폴인 `examples` 등이 포함됩니다 파일명은 `.npmignore`로 숨김처리 하여 만듭니다
+보통은 `.git`이 포함되며 `images` 또는 예제 프로젝트 `examples` 등이 포함됩니다 파일명은 `.npmignore`로 숨김처리 하여 만듭니다
 
 ```
 ExampleProject
@@ -124,7 +124,52 @@ images
 .git
 ```
 
-## 4. npm 계정 만들기
+## 4. npm 계정 만들고 배포하기
+
+npm 이나 yarn 명령어로 다른 개발자가 내 모듈을 설치 하기 위해서는 npm 레지스트리에 내가 만든 소스가 올라가야 되고 npm 계정이 있어야 합니다.
+먼저 https://www.npmjs.com/signup 에서 npm 계정을 만듭니다. 그리고 다음처럼 `npm login`으로 터미널에서 로그인을 진행합니다
+
+```shell
+> npm login
+
+Username: youngsoohan
+Password:
+Email: (this IS public) amazingmobdev@gmail.com
+Logged in as youngsoohan on https://registry.npmjs.org/.
+```
+
+배포는 `npm publush` 명령어로 진행이 되는데 모듈의 버전은 다음처럼 `package.json`에 명시된 버전이 됩니다
+
+```json
+// example
+"version": "0.4.3",
+```
+
+- 명령어 실행
+
+```shell
+> npm publish
+
+npm notice
+npm notice 📦  your-package-name@0.0.4
+npm notice === Tarball Contents ===
+npm notice 1.1kB LICENSE
+npm notice 532B  .eslintrc.js
+npm notice 2.9kB index.js
+npm notice 1.0kB package.json
+npm notice 2.7kB README.md
+npm notice 363B  index.d.ts
+npm notice === Tarball Details ===
+npm notice name:          react-native-animated-numbers
+npm notice version:       0.0.4
+npm notice package size:  3.5 kB
+npm notice unpacked size: 8.6 kB
+npm notice shasum:        25c7270b68521655ccbcbf60a936244ac35d0f7c
+npm notice integrity:     sha512-MkEXb3f5SXxKa[...]/rp593FjZ94fA==
+npm notice total files:   6
+npm notice
++ your-pacakge-name@0.0.4
+```
 
 ## 5. 그 외 있으면 좋은 것들
 
