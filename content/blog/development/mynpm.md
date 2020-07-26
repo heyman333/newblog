@@ -1,6 +1,6 @@
 ---
 title: 'npm 패키지 만들어 배포해보기'
-date: 2020-07-10 04:21:00
+date: 2020-07-25 04:21:00
 category: etc'
 draft: true
 ---
@@ -173,6 +173,25 @@ npm notice
 
 ## 5. 그 외 있으면 좋은 것들
 
-```
+1.  `circleci` 등 ci 설정하기
 
-```
+    소스를 레포에 올린 뒤에 누군가가 pull reqeust를 보낼 수도 있고, 내가 feature를 따서 작성한 뒤에 마스터에 머지하는 작업등을 할 수 있습니다.
+    이 때 자동으로 내 코드의 `lint`를 잡아주거나 `test 코드 실행`을 자동화 도구를 사용할 수 있는데 대표적인 무료툴은 [circleci](https://circleci.com/)가 있습니다(오픈소스 한정)
+
+![example](images/circleci.png)
+
+> 깃헙에서 circleci로 pull request를 검증하는 예시(React-Native repo)
+
+circleci 홈페이지에서 가입을 하고 다음처럼 내가 설정하려는 레포가 포함된 organization을 설정합니다(보통은 자기 계정이 되겠죠?)
+
+![org](images/org.png)
+
+그리고 다음처럼 내가 circleci config를 넣고 싶은 레포에서 다음처럼 `ylm`파일을 설정하면
+
+![ylm](images/ylm.png)
+
+아래 https://github.com/heyman333/TIL 레포에서 확인할 수 있는 것 처럼 `yml`파일이 설정된 것을 보실 수 있습니다.
+
+![github_config](images/github_config.png)
+
+`yml`파일을 정의하기 위해선 별도의 문법을 따로 공부해야 합니다. 비교적 복잡하고 어려운 workflow가 동작하길 원한다면 시간을 내서 문서등을 찾아보고 공부하실 것을 추천 드립니다 🙃
