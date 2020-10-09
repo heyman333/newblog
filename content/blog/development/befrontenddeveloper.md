@@ -13,7 +13,7 @@ draft: false
 
 우리가 보는 브라우저의 모든 화면은 html로 표시되며 css는 문서형식의 기본골격을 가지고 있는 html을 꾸며준다
 
-   <img src="https://media.giphy.com/media/fuJPZBIIqzbt1kAYVc/giphy.gif" width="100%" height="480" />
+   <img src="https://media.giphy.com/media/fuJPZBIIqzbt1kAYVc/giphy.gif" width="100%" height="auto" />
 
 > via GIPHY
 
@@ -60,15 +60,15 @@ http 통신, 소켓통신, 또 최근에는 `WEB RTC 기술`까지 수박 겉핥
 
 이제 더 이상 자바스크립트는 프론트엔드 개발자를 상징하는 언어가 아니다. 노드의 등장으로 자바스크립트 런타임 환경이 구성되고 현재는 많은 회사에서 `Node`와 자바스크립트를 서버 개발 도구로 사용중이다.
 
-<img src="https://velopert.com/wp-content/uploads/2016/02/nodejs-2560x1440-950x534.png" width="100%" height="300px"/>
+<img src="https://velopert.com/wp-content/uploads/2016/02/nodejs-2560x1440-950x534.png" width="100%" height="auto"/>
 
 > via https://velopert.com
 
 하지만 내가 여기서 말하는 순수하게 브라우저에서 돌아가는 흔히 말하는 `바닐라 자바스크립트`이다. `React vs Vue vs Angular` 한 번쯤은 봤을만한 문구이고 js라이브러리(프레임워크)의 장단점을 비교하는 글은 조금만 검색해 보면 쉽게 볼 수 있다.
 
-<img src="https://kruschecompany.com/wp-content/uploads/2020/06/angular-vs-react-vs-vuejs.png.webp" width="100%" height="300px"/>
+<img src="https://themexpert.b-cdn.net/images/easyblog_articles/688/Blog-banner.png" width="100%" height="auto"/>
 
-> via https://kruschecompany.com
+> via https://www.themexpert.com/blog/angular-vs-react-vs-vue
 
 하지만 위에서 말하는 유명한 라이브러리(또는 프레임워크)도 사실상 모두 html / css / js를 그리는 고도화된 도구일 뿐이다. 결국 브라우저가 이해하는 내용은 모두 우리가 기본적으로 알아야할 js와 html css로 구성 되어있을 것이다.
 
@@ -80,7 +80,7 @@ http 통신, 소켓통신, 또 최근에는 `WEB RTC 기술`까지 수박 겉핥
 
 `create-react-app` 으로 만든 SPA 기반의 웹에서 IE를 지원해아 하는 일이 생겼었다. 결국 폴리필(polyfill)을 설치해야헸고 눈물을 머금고 그토록 하기 싫었던 `yarn eject`를 실행했다
 
-<img src="https://media.giphy.com/media/AP8IYd4EAqY8M/giphy.gif" width="100%" height="300px"/>
+<img src="https://media.giphy.com/media/AP8IYd4EAqY8M/giphy.gif" width="100%" height="auto"/>
 
 > via GIPHY
 
