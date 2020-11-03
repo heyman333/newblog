@@ -73,7 +73,17 @@ export default ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteMetadata.title}>
-      <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
+      <Head
+        title={HOME_TITLE}
+        keywords={siteMetadata.keywords}
+        lang="ko"
+        meta={[
+          {
+            name: `og:image`,
+            content: "https://avatars3.githubusercontent.com/u/22214150?s=400&u=477d79a5d01151163e3d2d25881b31f8c740d199&v=4",
+          },
+        ]}
+      />
       <Bio />
       <Category
         categories={categories}
