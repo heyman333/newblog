@@ -27,3 +27,19 @@ draft: true
 `자바스크립트엔진` 외부에는 `Web APIs` & `Callback Queue` & `Event loop`가 있습니다.
 
 ### Web APIs
+
+자바스크립트 엔진에서 제공하는 기능이 아닙니다. `DOM`, `AJAX`, `Timeout` 등 우리가 자주 사용하는 이 기능은 모두 브라우저에서 제공해주는 브라우저만이 가지는 기능입니다. 하지만 위 기능들도 결국 `call stack`안에서 실행 될 것이며, 그 안에서 실행되는 콜백함수는 모두 위의 그림에 나와있는 콜백큐(Queue)안에 들어갑니다.
+
+### Callback Queue
+
+위에서 말한것처럼 비동기 함수들이 보관되는 영역입니다. `setTimeout(callback, time)`, `addEventListener` 안에서 사용되는 콜백을 생각 할 수 있습니다.
+
+ex:
+
+```js
+someElement.addEventListener(
+  'mouseup',
+  handleMouseUp, // callback
+  passiveSupported ? { passive: true } : false
+)
+```
