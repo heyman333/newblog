@@ -1,5 +1,5 @@
 ---
-title: '자바스크립트 이벤트루프 이해하기'
+title: '자바스크립트는 브라우저에서 어떻게 동작하는가'
 date: 2020-11-05 04:00:00
 category: 'javascript'
 draft: true
@@ -43,3 +43,9 @@ someElement.addEventListener(
   passiveSupported ? { passive: true } : false
 )
 ```
+
+### Event loop
+
+그림에서 보이듯이 자바스크립트 엔진안의 CallStack이 `모두 비어있는지` 확인하고 Callback Queue안의 콜백을 CallStack안에 넣고 실행합니다. 여기서 콜스택이 `모두 비어있는지`를 확인하고 콜백을 스택안에 넣는다는 것이 중요합니다. 이 과정을 틱(Tick)이라고 부릅니다.
+
+### Microtask Queue
