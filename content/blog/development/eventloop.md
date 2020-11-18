@@ -2,7 +2,7 @@
 title: '자바스크립트는 브라우저에서 어떻게 동작하는가'
 date: 2020-11-05 04:00:00
 category: 'javascript'
-draft: true
+draft: false
 ---
 
 많은 분들이 알다시피 javacrtipt는 싱글스레드 환경에서 구동되는 언어입니다. 하지만 자바스크립트에서는 이벤트루프라는 매커니즘을 동작시켜 여러개의 비동기 함수와 즉시실행되는 함수를 일정한 조건과 순서에 맞게 실행해 마치 여러개의 스레드가 동작하는 것처럼 보입니다.
@@ -90,6 +90,62 @@ promise2
 setTimeout
 ```
 
-`setTimeout`의 두 번째 인자가 0으로 넘어갔으니 바로 실행이 되지 않을까?라고 생각하기 쉬운부분입니다. 심지어 `setTimeout`은 `Promise`가 끝나고나서 불리게 됩니다. 왜 이런 결과가 나오게 되었을까요? 단순이 console을 출력하는 `console.log('script start')` 와 `console.log('script end')`는 비동기 (콜백함수)가 아니기 떄문에 바로 콜스택안에 들어가 실행됩니다. 이후 바로 `Promise`가 콜스택으로 들어갑니다. 이유는 `Promise`가 콜백에서 가장 높은 우선순위를 가지는 `Microtask Queue`이기 때문입니다.
+`setTimeout`의 두 번째 인자가 0으로 넘어갔으니 바로 실행이 되지 않을까?라고 생각하기 쉬운 부분입니다. 심지어 `setTimeout`은 `Promise`가 끝나고 나서 불리게 됩니다. 왜 이런 결과가 나오게 되었을까요? 단순이 console을 출력하는 `console.log('script start')` 와 `console.log('script end')`는 비동기 (콜백함수)가 아니기 때문에 바로 콜스택안에 들어가 실행됩니다. 이후 바로 `Promise`가 콜스택으로 들어갑니다. 이유는 `Promise`가 콜백에서 가장 높은 우선순위를 가지는 `Microtask Queue`이기 때문입니다.
 
-이후에 실행되는 `setTimeout`은 콜백큐에서 가장 낮은 우선순위를 갖는 `MainTask Queue`입니다.
+이후에 실행되는 `setTimeout`은 콜백큐에서 가장 낮은 우선순위를 갖는 `Task Queue`입니다.
+
+### Microtask Queue vs Task Queue vs Animation Frames
+
+위 그림에서는 총 3개의 콜백큐가 그려져 있는데요. 다음 예제를 통해 큐의 우선순위를 알아보겠습니다.
+
+```js
+//1. script 실행 (log)
+console.log('script start')
+
+//2. script 실행 (setTimeout callback task queue에 등록)
+setTimeout(function() {
+  //11. Task 실행
+  console.log('setTimeout')
+}, 0)
+
+//3. script 실행 (Promise then callback Microtask queue에 등록)
+Promise.resolve()
+  .then(function() {
+    // 7. MicroTask 실행
+    console.log('promise1')
+  }) // 8. script 실행 (Promise then callback Microtask queue에 등록)
+  .then(function() {
+    // 9. MicroTask 실행
+    console.log('promise2')
+  })
+
+//4. script 실행 (AnimationFrame Animation frames에 등록)
+requestAnimationFrame(function() {
+  //10. Animation Frame 실행
+  console.log('animation')
+})
+
+//5. script 실행
+console.log('script end')
+//6. Stack의 모든 Task 실행완료
+```
+
+```js
+//console
+
+script start
+script end
+promise1
+promise2
+animation
+setTimeout
+```
+
+결론:
+
+<b>Microtask Queue > Animation Frames > Task Queue</b>
+
+### 출처 및 참고
+
+- https://iamsjy17.github.io/javascript/2019/07/20/how-to-works-js.html
+- https://velog.io/@thms200/Event-Loop-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84
