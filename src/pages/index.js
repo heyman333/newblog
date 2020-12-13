@@ -24,6 +24,7 @@ function getDistance(currentPos) {
 }
 
 export default ({ data, location }) => {
+  console.log("data!!", data)
   const initialCount = Storage.getCount(1)
   const initialCategory = Storage.getCategory(CATEGORY_TYPE.ALL)
   const [count, setCount] = useState(initialCount)
