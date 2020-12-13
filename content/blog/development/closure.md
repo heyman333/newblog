@@ -71,11 +71,11 @@ for (var i = 0; i < 10; i++) {
 
 ```js
 for (var i = 0; i < 10; i++) {
-  ;(function(j) {
+  (function(j) {
     setTimeout(function() {
-      console.log(j)
-    }, 100)
-  })(i)
+      console.log(j);
+    }, 100);
+  })(i);
 }
 ```
 
