@@ -1,7 +1,7 @@
 ---
 title: 'npm 패키지 만들어 배포해보기'
 date: 2020-07-30 18:30:00
-category: etc
+category: 'node'
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: '러나 (Lerna) 훑어보기'
 date: 2020-02-02 21:56:00
-category: 'etc'
+category: 'node'
 draft: false
 ---
 
