@@ -45,8 +45,7 @@ hello youngsoo han
 다시 한번 클로저를 이해하기 위해서 여러 블로그에서 가장 많이 보는 예제를 소개해 보겠습니다
 
 ```js
-let i
-for (i = 0; i < 10; i++) {
+for (var i = 0; i < 10; i++) {
   setTimeout(function() {
     console.log(i)
   }, 100)
@@ -71,23 +70,22 @@ for (i = 0; i < 10; i++) {
 이렇게 10이 10번이 찍히는 걸 알 수 있습니다. 첫번째 `setTimeout`이 불리기 전에 (100ms 전에) 이미 i는 for문을 10번을 다 돌아서 i++로 증가함에 따라 10으로 올라가 있고, 이후에 console을 통해 찍히는 i 값은 이미 모두 10입니다. 그렇다면 우리가 원하는 결과값을 얻기 위해서 위에서 학습한 클로저를 사용해 원하는 결과값을 도출해 보겠습니다.
 
 ```js
-for (let i = 0; i < 10; i++) {
-  setTimeout(function() {
-    console.log(i)
-  }, 100)
+for (var i = 0; i < 10; i++) {
+  (function(j) {
+    setTimeout(function() {
+      console.log(j);
+    }, 100);
+  })(i);
 }
 ```
 
 또는
 
 ```js
-let i
 for (let i = 0; i < 10; i++) {
-  (function(j) {
-    setTimeout(function() {
-      console.log(j)
-    }, 100)
-  })(i)
+  setTimeout(function() {
+    console.log(i)
+  }, 100)
 }
 ```
 
@@ -105,34 +103,34 @@ for (let i = 0; i < 10; i++) {
 8
 9
 ```
-원하는 결과값이 제대로 나오는 것을 확인 할 수 있습니다. 첫번째 경우는 변수 i값이 for문 스코프 안으로 들어왔습니다. for문 의 실행부분이 클로저로 적용 되어 `setTimeout` 안에서 실행당시 i값을 적절하게 참조합니다.
 
-두 번째 예제에서는 클로저함수의 특징을 좀 더 명확하게 보실 수 있습니다. 즉시실행함수(IIFE)를 통해 클로저 안의 함수가 생성되는 시점에 적절하게 i값을 참조 할 수 있도록 보완 했습니다.
+첫 번째 예제에서는 클로저함수의 특징을 명확하게 보실 수 있습니다. 즉시실행함수(IIFE)를 통해 클로저 안의 함수가 생성되는 시점에 적절하게 i값을 참조 할 수 있도록 보완 했습니다.
+
+두 번째 경우는 for문안의 초기화 변수 i값이 `var` 키워드 대신 `let`키워드가 사용되었습니다. 자바스크립트의 `함수 레벨 스코프`로 인하여 for 루프의 초기화 식에 사용된 변수가 전역 스코프를 갖게 되어 발생하는 문제를 회피하기 `var` 키워드 대신 `let`키워드를 사용해서 문제를 해결 했는데, `let`을 사용하면 for 루프의 i는 for 루프의 코드 블록에서만 유효한(`블록 레벨 스코프`) 지역 변수이면서 자유 변수가 되어 클로저 변수의 역할을 할 수 있게 됩니다. [자세한 내용](https://poiemaweb.com/es6-block-scope)
 
 그렇다면 클로저 함수는 어느곳에서 유용하게 사용할 수 있을까요?
-
 
 ## debounce함수의 구현
 
 ```js
 function debounce(func, wait, immediate) {
-  let timeout;
+  let timeout
   return function() {
-  	const context = this, args = arguments;
-  	clearTimeout(timeout);
-  	timeout = setTimeout(function() {
-  		timeout = null;
-  		if (!immediate) func.apply(context, args);
-  	}, wait);
-  	if (immediate && !timeout) func.apply(context, args);
-  };
+    const context = this,
+      args = arguments
+    clearTimeout(timeout)
+    timeout = setTimeout(function() {
+      timeout = null
+      if (!immediate) func.apply(context, args)
+    }, wait)
+    if (immediate && !timeout) func.apply(context, args)
+  }
 }
 ```
 
 자주 사용하는 `debounce`도 위처럼 클로저 안의 변수를 활용해서 구현할 수 있습니다 (timeout). 외부에서 사용하는 함수 는 결국 반환되는 함수이겠지만 timeout값을 계속 기억하고 있다가 clearTimeout을 통해 기존에 실행되기로한 함수를 없에는 등 의 동작을 실행합니다.
 
 위 원리를 이용하면 비슷한 동작을 필요로 하는 여러가지 함수를 만들 수 있습니다.
-
 
 ## 정보의 은닉화(캡슐화)
 
@@ -142,46 +140,47 @@ C++ 또는 자바같은 객체지향 프로그래밍 언어를 배울 때 한번
 
 ```js
 function Hello(name) {
-  this._name = name;
+  this._name = name
 }
 
 Hello.prototype.say = function() {
-  console.log('밥먹자, ' + this._name);
+  console.log('밥먹자, ' + this._name)
 }
 
-const hello1 = new Hello('강아지');
-const hello2 = new Hello('고양이');
-const hello3 = new Hello('망아지');
+const hello1 = new Hello('강아지')
+const hello2 = new Hello('고양이')
+const hello3 = new Hello('망아지')
 
-hello1.say();
-hello2.say();
-hello3.say();
-hello1._name = '꿀꿀이';
-hello1.say();
+hello1.say()
+hello2.say()
+hello3.say()
+hello1._name = '꿀꿀이'
+hello1.say()
 ```
+
 위에서 볼 수 있듯이 외부에 노출되지 않아도 되는 `_name` 값이 함수 밖에서 손쉽게 조작되는 것을 볼 수 있습니다. 하지만
 
 ```js
 function hello(name) {
-  const _name = name;
+  const _name = name
   return function() {
-    console.log('밥먹자, ' + _name);
-  };
+    console.log('밥먹자, ' + _name)
+  }
 }
 
-const hello1 = hello('강아지');
-const hello2 = hello('고양이');
-const hello3 = hello('망아지');
+const hello1 = hello('강아지')
+const hello2 = hello('고양이')
+const hello3 = hello('망아지')
 
-hello1();
-hello2();
-hello3();
+hello1()
+hello2()
+hello3()
 ```
 
-위 같이 클로저를 사용한다면 _name에 접근할 수 있는 방법을 제공하지 않고 원하는 결과 값을 얻을 수 있습니다.
+위 같이 클로저를 사용한다면 \_name에 접근할 수 있는 방법을 제공하지 않고 원하는 결과 값을 얻을 수 있습니다.
 
 # 참조
-위 글은 다음 블로그의 예시를 많이 사용 하였으며 제가 클로저를 공부하는데 상당 부분 영향을 미쳤습니다.
 
+위 글은 다음 블로그의 예시를 많이 사용 하였으며 제가 클로저를 공부하는데 상당 부분 영향을 미쳤습니다.
 
 https://hyunseob.github.io/2016/08/30/javascript-closure/
