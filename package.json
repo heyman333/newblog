@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-bee",
+  "name": "zero-blog",
   "private": true,
-  "description": "Gatsby blog starter template",
-  "version": "0.1.0",
-  "author": "Jbee[JaeYeopHan]<ljyhanll@gmail.com>",
+  "description": "Zero blog",
+  "version": "1.0.0",
+  "author": "zerowater<amazingmobdev@gmail.com>",
   "bugs": {
     "url": "https://github.com/JaeYeopHan/gatsby-starter-bee/issues"
   },
